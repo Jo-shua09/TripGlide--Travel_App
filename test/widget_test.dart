@@ -14,7 +14,7 @@ import 'package:travel_app/features/home/view/home_screen.dart';
 void main() {
   testWidgets('HomeScreen smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const GetMaterialApp(home: HomeScreen()));
+    await tester.pumpWidget(GetMaterialApp(home: HomeScreen()));
 
     // Verify that the HomeScreen title is displayed.
     expect(find.text('Home Screen'), findsOneWidget);

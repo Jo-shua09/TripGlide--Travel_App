@@ -75,7 +75,7 @@ class _LogInScreenState extends State<LogInScreen> {
                   width: double.infinity,
                   height: 55,
                   child: ElevatedButton(
-                    onPressed: () => Get.off(() => const HomeScreen()),
+                    onPressed: () => Get.off(() => HomeScreen()),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.black,
                       shape: RoundedRectangleBorder(

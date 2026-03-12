@@ -51,6 +51,7 @@ Example: Run `flutter screenshot` or add manually to `/screenshots/`
    flutter pub get
    ```
 4. Run the app:
+
    ```
    flutter run
    ```
@@ -102,18 +103,6 @@ class Trip {
   final String accommodation;
 }
 ```
-
-## 🛤️ Roadmap
-
-- [x] Basic auth & home screens
-- [ ] Trip categorization (from TODO.md)
-- [ ] Full profile management
-- [ ] Real APIs (e.g., travel APIs for dynamic data)
-- [ ] Favorites/Booking flow
-- [ ] Push notifications
-- [ ] Offline support (Hive/SQLite)
-
-See [TODO.md](TODO.md) for current tasks.
 
 ## 🤝 Contributing
 
