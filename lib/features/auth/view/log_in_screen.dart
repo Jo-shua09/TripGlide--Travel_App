@@ -34,7 +34,7 @@ class _LogInScreenState extends State<LogInScreen> {
                 ),
                 const SizedBox(height: 4),
                 const Text(
-                  'Login Back to Resume Your Journey.',
+                  'Login back to resume your journey.',
                   maxLines: 2,
                   style: TextStyle(
                     fontWeight: FontWeight.normal,

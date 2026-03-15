@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:travel_app/features/auth/widgets/trip_card.dart';
 import 'package:travel_app/features/home/controllers/home_controller.dart';
 import 'package:travel_app/features/search/view/search_screen.dart';
 
@@ -17,7 +18,6 @@ class HomeScreen extends StatelessWidget {
         padding: const EdgeInsets.all(12.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.max,
           children: [
             //?? User Profile Bar
             Row(
@@ -63,18 +63,24 @@ class HomeScreen extends StatelessWidget {
                 ),
               ],
             ),
+
             //?? Search Bar
             const SizedBox(height: 14),
             SearchScreen(),
 
-            //?? Trip Categories
             const SizedBox(height: 16),
             const Text(
               'Select your next trip',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
+
+            //?? Trip Categories List
             const SizedBox(height: 14),
             _tripsCategoryList(),
+
+            //?? Scrollable Trip Cards
+            const SizedBox(height: 14),
+            Expanded(child: SingleChildScrollView(child: TripCard())),
           ],
         ),
       ),
@@ -125,7 +131,6 @@ class HomeScreen extends StatelessWidget {
             },
           ),
         ),
-        const SizedBox(height: 16),
       ],
     );
   }
