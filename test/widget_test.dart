@@ -16,10 +16,10 @@ void main() {
     // Build our app and trigger a frame.
     await tester.pumpWidget(GetMaterialApp(home: HomeScreen()));
 
-    // Verify that the HomeScreen title is displayed.
-    expect(find.text('Home Screen'), findsOneWidget);
+    // Verify that the user greeting is displayed.
+    expect(find.text('Hello, Vanessa'), findsOneWidget);
 
     // Verify that the welcome message is displayed.
-    expect(find.text('Welcome to the Home Screen!'), findsOneWidget);
+    expect(find.text('Welcome to TripGlide'), findsOneWidget);
   });
 }

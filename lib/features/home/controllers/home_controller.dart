@@ -5,6 +5,18 @@ class HomeController extends GetxController {
   var allTripsList = allTrips.obs;
   var selectedCategory = 'All'.obs;
 
+  RxList<Trip> favoriteTripsList = <Trip>[].obs;
+
+  bool isFavorite(Trip trip) => favoriteTripsList.contains(trip);
+
+  void toggleFavorite(Trip trip) {
+    if (isFavorite(trip)) {
+      favoriteTripsList.remove(trip);
+    } else {
+      favoriteTripsList.add(trip);
+    }
+  }
+
   // This logic extracts unique categories from your dummy data
   List<String> get categories {
     // 1. Get all categories from the list

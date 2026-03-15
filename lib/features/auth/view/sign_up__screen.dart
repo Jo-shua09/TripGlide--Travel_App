@@ -3,6 +3,7 @@ import 'package:travel_app/features/auth/widgets/text_field_widget.dart';
 import 'package:get/get.dart';
 import 'package:travel_app/features/auth/view/log_in_screen.dart';
 import 'package:travel_app/features/home/view/home_screen.dart';
+import 'package:travel_app/main_screen.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -96,7 +97,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               width: double.infinity,
               height: 55,
               child: ElevatedButton(
-                onPressed: () => Get.off(() => HomeScreen()),
+                onPressed: () => Get.off(() => const MainScreen()),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.black,
                   shape: RoundedRectangleBorder(

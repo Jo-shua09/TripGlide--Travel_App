@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:travel_app/features/auth/view/sign_up__screen.dart';
-import 'package:travel_app/features/home/view/home_screen.dart';
 
 class StartupScreen extends StatefulWidget {
   const StartupScreen({super.key});
@@ -38,7 +37,7 @@ class _StartupScreenState extends State<StartupScreen>
 
     // Navigate to HomeScreen after 3 seconds
     Future.delayed(const Duration(seconds: 3), () {
-      Get.off(() => const SignUpScreen());
+      Get.offAll(() => SignUpScreen());
     });
   }
 

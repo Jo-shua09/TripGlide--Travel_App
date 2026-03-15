@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:travel_app/features/auth/widgets/text_field_widget.dart';
 import 'package:travel_app/features/auth/view/sign_up__screen.dart';
-import 'package:travel_app/features/home/view/home_screen.dart';
+import 'package:travel_app/main_screen.dart';
 
 class LogInScreen extends StatefulWidget {
   const LogInScreen({super.key});
@@ -75,7 +75,7 @@ class _LogInScreenState extends State<LogInScreen> {
                   width: double.infinity,
                   height: 55,
                   child: ElevatedButton(
-                    onPressed: () => Get.off(() => HomeScreen()),
+                    onPressed: () => Get.off(() => const MainScreen()),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.black,
                       shape: RoundedRectangleBorder(

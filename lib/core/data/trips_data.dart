@@ -47,7 +47,7 @@ const allTrips = [
     name: 'Tokyo Urban Adventure',
     country: 'Japan',
     image:
-        'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=800&fit=crop',
+        'https://images.unsplash.com/photo-1503899036084-c55cdd92da26?w=800&fit=crop',
     rating: 4.8,
     reviews: 956,
     description:
@@ -65,7 +65,7 @@ const allTrips = [
     name: 'Bali Tropical Paradise',
     country: 'Indonesia',
     image:
-        'https://images.unsplash.com/photo-1551632811-561732d1e306?w=800&fit=crop',
+        'https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800&fit=crop',
     rating: 5.0,
     reviews: 2034,
     description:
@@ -85,7 +85,7 @@ const allTrips = [
     name: 'New York City Lights',
     country: 'USA',
     image:
-        'https://images.unsplash.com/photo-1519046904884-53103b34b206?w=800&fit=crop',
+        'https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=800&fit=crop',
     rating: 4.7,
     reviews: 1789,
     description:
@@ -103,7 +103,7 @@ const allTrips = [
     name: 'Machu Picchu Wonder',
     country: 'Peru',
     image:
-        'https://images.unsplash.com/photo-1571814861442-84a23c7fc4b2?w=800&fit=crop',
+        'https://images.unsplash.com/photo-1587595431973-160d0d94add1?w=800&fit=crop',
     rating: 4.9,
     reviews: 892,
     description:
@@ -120,7 +120,7 @@ const allTrips = [
     name: 'Santorini Sunset Bliss',
     country: 'Greece',
     image:
-        'https://images.unsplash.com/photo-1543782249-3c844f7bbb6b?w=800&fit=crop',
+        'https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=800&fit=crop',
     rating: 4.9,
     reviews: 1654,
     description:
@@ -139,7 +139,7 @@ const allTrips = [
     name: 'Cape Town Coastal',
     country: 'South Africa',
     image:
-        'https://images.unsplash.com/photo-1552566626-52f8b828add9?w=800&fit=crop',
+        'https://images.unsplash.com/photo-1580619305218-8423a7ef79b4?w=800&fit=crop',
     rating: 4.6,
     reviews: 734,
     description:
@@ -157,7 +157,7 @@ const allTrips = [
     name: 'Amalfi Coast Drive',
     country: 'Italy',
     image:
-        'https://images.unsplash.com/photo-1559827260-d70f73b3fb34?w=800&fit=crop',
+        'https://images.unsplash.com/photo-1612698093158-e07ac200d44e?w=800&fit=crop',
     rating: 4.8,
     reviews: 1123,
     description:
@@ -175,7 +175,7 @@ const allTrips = [
     name: 'Banff National Park',
     country: 'Canada',
     image:
-        'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&fit=crop',
+        'https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&fit=crop',
     rating: 4.9,
     reviews: 1456,
     description:
@@ -193,7 +193,7 @@ const allTrips = [
     name: 'Marrakech Exotic',
     country: 'Morocco',
     image:
-        'https://images.unsplash.com/photo-1518221433427-916fb6410233?w=800&fit=crop',
+        'https://images.unsplash.com/photo-1539020140153-e479b8c22e70?w=800&fit=crop',
     rating: 4.7,
     reviews: 987,
     description:
@@ -211,7 +211,7 @@ const allTrips = [
     name: 'Reykjavik Northern Lights',
     country: 'Iceland',
     image:
-        'https://images.unsplash.com/photo-1519058082700-6d30927db022?w=800&fit=crop',
+        'https://images.unsplash.com/photo-1476610182048-b716b8518aae?w=800&fit=crop',
     rating: 4.8,
     reviews: 623,
     description:
@@ -229,7 +229,7 @@ const allTrips = [
     name: 'Rio de Janeiro Carnival',
     country: 'Brazil',
     image:
-        'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&fit=crop',
+        'https://images.unsplash.com/photo-1483729558449-99ef09a8c325?w=800&fit=crop',
     rating: 4.5,
     reviews: 2105,
     description:
