@@ -22,7 +22,7 @@ class _NavigationBarWidgetState extends State<NavigationBarWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
+      padding: const EdgeInsets.fromLTRB(30, 0, 30, 20),
       child: SizedBox(
         height: 70,
         width: double.infinity,
