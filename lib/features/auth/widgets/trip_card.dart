@@ -15,10 +15,14 @@ class TripCardSwiper extends StatelessWidget {
       () => SizedBox(
         height: 340,
         child: CardSwiper(
+          key: ValueKey(controller.selectedCategory.value),
           padding: const EdgeInsets.fromLTRB(20, 10, 20, 30),
           scale: 0.85,
           cardsCount: controller.allTripsList.length,
           cardBuilder: (context, index, percentThresholdX, percentThresholdY) {
+            if (index >= controller.allTripsList.length) {
+              return const SizedBox.shrink();
+            }
             final trip = controller.allTripsList[index];
 
             // This is your existing Container logic

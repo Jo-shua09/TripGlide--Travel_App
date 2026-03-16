@@ -95,6 +95,7 @@ class HomeScreen extends StatelessWidget {
         SizedBox(
           height: 35,
           child: ListView.builder(
+            physics: const BouncingScrollPhysics(),
             scrollDirection: Axis.horizontal,
             itemCount: controller.categories.length,
             itemBuilder: (context, index) {
