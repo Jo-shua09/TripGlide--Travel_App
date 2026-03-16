@@ -14,176 +14,279 @@ class TripDetailsScreen extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          //?? Background Image
-          Container(
-            width: double.infinity,
-            height: double.infinity,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: NetworkImage(trip.image),
-                fit: BoxFit.cover,
+          // 1. Full-screen Background Image
+          Positioned.fill(
+            child: Image.network(trip.image, height: 50, fit: BoxFit.cover),
+          ),
+
+          //?? 2. Gradient Overlay for readability
+          Positioned.fill(
+            child: Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    Colors.black.withOpacity(0.3),
+                    Colors.transparent,
+                    Colors.black.withOpacity(0.4),
+                  ],
+                ),
               ),
             ),
           ),
-          //?? Gradient Overlay
-          Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [
-                  Colors.black.withOpacity(0.3),
-                  Colors.transparent,
-                  Colors.black.withOpacity(0.7),
+
+          //?? 3. Top Action Bar (Back & Favorite)
+          SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  CircleAvatar(
+                    backgroundColor: Colors.white,
+                    child: IconButton(
+                      icon: const Icon(
+                        Icons.arrow_back_ios_new,
+                        color: Colors.black,
+                        size: 20,
+                      ),
+                      onPressed: () => Get.back(),
+                    ),
+                  ),
+                  CircleAvatar(
+                    backgroundColor: Colors.white,
+                    child: Obx(
+                      () => IconButton(
+                        icon: Icon(
+                          controller.isFavorite(trip)
+                              ? Icons.favorite
+                              : Icons.favorite_border,
+                          color: controller.isFavorite(trip)
+                              ? Colors.red
+                              : Colors.black,
+                        ),
+                        onPressed: () => controller.toggleFavorite(trip),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
           ),
-          //!! Content
-          SafeArea(
-            child: Container(
-              padding: const EdgeInsets.all(12.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      CircleAvatar(
-                        backgroundColor: Colors.white,
-                        child: IconButton(
-                          icon: const Icon(
-                            Icons.arrow_back_ios_new,
-                            color: Colors.black,
-                            size: 22,
+
+          //?? 4. The Modern Draggable Bottom Sheet
+          DraggableScrollableSheet(
+            snap: true,
+            snapSizes: [0.35, 0.9],
+            initialChildSize: 0.9, // Halfway open
+            minChildSize: 0.35,
+            maxChildSize: 0.9, // Almost full screen
+            builder: (context, scrollController) {
+              return Container(
+                decoration: const BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.vertical(top: Radius.circular(32)),
+                ),
+                child: SingleChildScrollView(
+                  controller: scrollController,
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(16, 10, 16, 20),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        //!! Drag Handle
+                        Center(
+                          child: Container(
+                            width: 40,
+                            height: 5,
+                            decoration: BoxDecoration(
+                              color: Colors.grey[300],
+                              borderRadius: BorderRadius.circular(10),
+                            ),
                           ),
-                          onPressed: () => Get.back(),
                         ),
-                      ),
-                      CircleAvatar(
-                        backgroundColor: Colors.transparent,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            shape: BoxShape.circle,
+                        const SizedBox(height: 20),
+
+                        //!! Trip Title & Category
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              trip.name,
+                              style: const TextStyle(
+                                fontFamily: 'InstrumentSans',
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            const Spacer(),
+                            Container(
+                              decoration: BoxDecoration(
+                                color: Colors.transparent,
+                                borderRadius: BorderRadius.circular(20),
+                                border: Border.all(
+                                  color: Colors.grey,
+                                  width: 0.7,
+                                ),
+                              ),
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 4,
+                                vertical: 1,
+                              ),
+                              child: Row(
+                                children: [
+                                  Icon(
+                                    Icons.star_border_outlined,
+                                    color: Colors.black,
+                                    size: 16,
+                                  ),
+                                  const SizedBox(width: 2),
+                                  Text(
+                                    trip.rating.toString(),
+                                    style: const TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 4),
+                        Row(
+                          children: [
+                            Row(
+                              children: [
+                                const Icon(
+                                  Icons.location_on,
+                                  size: 16,
+                                  color: Colors.black,
+                                ),
+                                const SizedBox(width: 4),
+                                Text(
+                                  trip.country,
+                                  style: const TextStyle(color: Colors.black),
+                                ),
+                              ],
+                            ),
+                            const Spacer(),
+                            Row(
+                              children: [
+                                Text(
+                                  ' ${trip.reviews.toString()} reviews',
+                                  style: const TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 12,
+                                    decoration: TextDecoration.underline,
+                                    decorationThickness: 1.5,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+
+                        const SizedBox(height: 14),
+                        const Text(
+                          "Description",
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
                           ),
-                          child: IconButton(
-                            onPressed: () => controller.toggleFavorite(trip),
-                            icon: Obx(
-                              () => Icon(
-                                controller.isFavorite(trip)
-                                    ? Icons.favorite
-                                    : Icons.favorite_border_rounded,
-                                color: Colors.black,
+                        ),
+                        const SizedBox(height: 2),
+                        Text(
+                          trip.description,
+                          maxLines: 3,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black54,
+                            height: 1.5,
+                          ),
+                        ),
+                        const SizedBox(height: 8),
+                        GestureDetector(
+                          onTap: () {
+                            //?? see more function
+                          },
+                          child: const Text(
+                            'Read more',
+                            style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.black,
+                              decoration: TextDecoration.underline,
+                              decorationThickness: 1.5,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 24),
+
+                        const Text(
+                          "Schedule",
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        ...trip.schedule.map(
+                          (item) => Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 4),
+                            child: Row(
+                              children: [
+                                const Icon(
+                                  Icons.check_circle_outline,
+                                  size: 16,
+                                  color: Colors.green,
+                                ),
+                                const SizedBox(width: 8),
+                                Expanded(
+                                  child: Text(
+                                    item,
+                                    style: const TextStyle(fontSize: 14),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+
+                        const SizedBox(height: 32),
+                        // Book Now Button
+                        SizedBox(
+                          width: double.infinity,
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.black,
+                              padding: const EdgeInsets.symmetric(vertical: 18),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(16),
+                              ),
+                            ),
+                            onPressed: () {},
+                            child: const Text(
+                              "Book Now",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                  const Spacer(),
-                  _buildTripInfoOverlay(),
-                ],
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildTripInfoOverlay() {
-    return Container(
-      padding: const EdgeInsets.all(20),
-      decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.9),
-        borderRadius: BorderRadius.circular(30),
-      ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Expanded(
-                child: Text(
-                  trip.name,
-                  style: const TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-              Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 10,
-                  vertical: 5,
-                ),
-                decoration: BoxDecoration(
-                  color: Colors.black,
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Row(
-                  children: [
-                    const Icon(Icons.star, color: Colors.white, size: 16),
-                    const SizedBox(width: 4),
-                    Text(
-                      trip.rating.toString(),
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
+                        const SizedBox(height: 20),
+                      ],
                     ),
-                  ],
+                  ),
                 ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 8),
-          Row(
-            children: [
-              const Icon(Icons.location_on, color: Colors.grey, size: 16),
-              const SizedBox(width: 4),
-              Text(
-                trip.country,
-                style: const TextStyle(color: Colors.grey, fontSize: 16),
-              ),
-            ],
-          ),
-          const SizedBox(height: 16),
-          Text(
-            trip.description,
-            maxLines: 3,
-            overflow: TextOverflow.ellipsis,
-            style: TextStyle(
-              color: Colors.grey.shade800,
-              fontSize: 14,
-              height: 1.4,
-            ),
-          ),
-          const SizedBox(height: 20),
-          SizedBox(
-            width: double.infinity,
-            height: 55,
-            child: ElevatedButton(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.black,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15),
-                ),
-              ),
-              child: const Text(
-                "Book Now",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
+              );
+            },
           ),
         ],
       ),
