@@ -12,11 +12,24 @@ class TripDetailsScreen extends StatelessWidget {
     final HomeController controller = Get.find<HomeController>();
 
     return Scaffold(
+      backgroundColor: Colors.grey.shade900,
       body: Stack(
         children: [
-          // 1. Full-screen Background Image
-          Positioned.fill(
-            child: Image.network(trip.image, height: 50, fit: BoxFit.cover),
+          //?? 1. Full-screen Background Image
+          Positioned(
+            top: 0,
+            left: 0,
+            right: 0,
+            child: Container(
+              width: double.infinity,
+              height: 270,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: NetworkImage(trip.image),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
           ),
 
           //?? 2. Gradient Overlay for readability
@@ -79,9 +92,9 @@ class TripDetailsScreen extends StatelessWidget {
           DraggableScrollableSheet(
             snap: true,
             snapSizes: [0.35, 0.9],
-            initialChildSize: 0.9, // Halfway open
+            initialChildSize: 0.7, //?? Halfway open
             minChildSize: 0.35,
-            maxChildSize: 0.9, // Almost full screen
+            maxChildSize: 0.9, //?? Almost full screen
             builder: (context, scrollController) {
               return Container(
                 decoration: const BoxDecoration(
@@ -228,58 +241,58 @@ class TripDetailsScreen extends StatelessWidget {
                         ),
                         const SizedBox(height: 24),
 
-                        const Text(
-                          "Schedule",
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        ...trip.schedule.map(
-                          (item) => Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 4),
-                            child: Row(
-                              children: [
-                                const Icon(
-                                  Icons.check_circle_outline,
-                                  size: 16,
-                                  color: Colors.green,
-                                ),
-                                const SizedBox(width: 8),
-                                Expanded(
-                                  child: Text(
-                                    item,
-                                    style: const TextStyle(fontSize: 14),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
+                        // const Text(
+                        //   "Schedule",
+                        //   style: TextStyle(
+                        //     fontSize: 18,
+                        //     fontWeight: FontWeight.bold,
+                        //   ),
+                        // ),
+                        // ...trip.schedule.map(
+                        //   (item) => Padding(
+                        //     padding: const EdgeInsets.symmetric(vertical: 4),
+                        //     child: Row(
+                        //       children: [
+                        //         const Icon(
+                        //           Icons.check_circle_outline,
+                        //           size: 16,
+                        //           color: Colors.green,
+                        //         ),
+                        //         const SizedBox(width: 8),
+                        //         Expanded(
+                        //           child: Text(
+                        //             item,
+                        //             style: const TextStyle(fontSize: 14),
+                        //           ),
+                        //         ),
+                        //       ],
+                        //     ),
+                        //   ),
+                        // ),
 
-                        const SizedBox(height: 32),
-                        // Book Now Button
-                        SizedBox(
-                          width: double.infinity,
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.black,
-                              padding: const EdgeInsets.symmetric(vertical: 18),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(16),
-                              ),
-                            ),
-                            onPressed: () {},
-                            child: const Text(
-                              "Book Now",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                        ),
+                        // const SizedBox(height: 32),
+                        // // Book Now Button
+                        // SizedBox(
+                        //   width: double.infinity,
+                        //   child: ElevatedButton(
+                        //     style: ElevatedButton.styleFrom(
+                        //       backgroundColor: Colors.black,
+                        //       padding: const EdgeInsets.symmetric(vertical: 18),
+                        //       shape: RoundedRectangleBorder(
+                        //         borderRadius: BorderRadius.circular(16),
+                        //       ),
+                        //     ),
+                        //     onPressed: () {},
+                        //     child: const Text(
+                        //       "Book Now",
+                        //       style: TextStyle(
+                        //         color: Colors.white,
+                        //         fontSize: 16,
+                        //         fontWeight: FontWeight.bold,
+                        //       ),
+                        //     ),
+                        //   ),
+                        // ),
                         const SizedBox(height: 20),
                       ],
                     ),
