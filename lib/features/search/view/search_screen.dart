@@ -25,7 +25,7 @@ class SearchScreen extends StatelessWidget {
           suffixIcon: Container(
             margin: const EdgeInsets.all(1.0),
             decoration: BoxDecoration(
-              color: Colors.black,
+              color: Colors.grey.shade900,
               borderRadius: BorderRadius.circular(50.0),
             ),
             child: const Icon(

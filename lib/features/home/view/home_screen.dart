@@ -32,7 +32,7 @@ class HomeScreen extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
-                          color: Colors.black,
+                          color: Colors.grey.shade900,
                         ),
                       ),
                       Text(
@@ -54,7 +54,7 @@ class HomeScreen extends StatelessWidget {
                       height: 40,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        color: Colors.black,
+                        color: Colors.grey.shade900,
                       ),
                       child: const Icon(
                         Icons.person_outline,
@@ -113,7 +113,7 @@ class HomeScreen extends StatelessWidget {
                       vertical: 8,
                     ),
                     decoration: BoxDecoration(
-                      color: isSelected ? Colors.black : Colors.white,
+                      color: isSelected ? Colors.grey.shade900 : Colors.white,
                       borderRadius: BorderRadius.circular(25),
                     ),
                     child: Center(
@@ -123,7 +123,9 @@ class HomeScreen extends StatelessWidget {
                           fontWeight: isSelected
                               ? FontWeight.bold
                               : FontWeight.w700,
-                          color: isSelected ? Colors.white : Colors.black54,
+                          color: isSelected
+                              ? Colors.white
+                              : Colors.grey.shade900,
                         ),
                       ),
                     ),
