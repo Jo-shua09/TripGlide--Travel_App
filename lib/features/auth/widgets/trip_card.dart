@@ -29,6 +29,7 @@ class TripCardSwiper extends StatelessWidget {
             return Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
+                color: Colors.white,
                 image: DecorationImage(
                   image: NetworkImage(trip.image),
                   fit: BoxFit.cover,

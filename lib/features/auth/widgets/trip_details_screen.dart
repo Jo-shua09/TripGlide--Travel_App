@@ -90,7 +90,7 @@ class TripDetailsScreen extends StatelessWidget {
           DraggableScrollableSheet(
             snap: true,
             snapSizes: [0.65, 0.9],
-            initialChildSize: 0.65, //?? Halfway open
+            initialChildSize: 0.75, //?? Halfway open
             minChildSize: 0.65,
             maxChildSize: 0.9, //?? Almost full screen
             builder: (context, scrollController) {
@@ -205,14 +205,14 @@ class TripDetailsScreen extends StatelessWidget {
                         const Text(
                           "Description",
                           style: TextStyle(
-                            fontSize: 16,
+                            fontSize: 18,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                         const SizedBox(height: 2),
                         Text(
                           trip.description,
-                          maxLines: 3,
+                          maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
                             fontSize: 14,
@@ -224,7 +224,7 @@ class TripDetailsScreen extends StatelessWidget {
                         const SizedBox(height: 8),
                         GestureDetector(
                           onTap: () {
-                            //?? see more function
+                            //?? read more function
                           },
                           child: const Text(
                             'Read more',
@@ -233,65 +233,180 @@ class TripDetailsScreen extends StatelessWidget {
                               fontWeight: FontWeight.w600,
                               color: Colors.black,
                               decoration: TextDecoration.underline,
-                              decorationThickness: 1.5,
+                              decorationThickness: 1,
                             ),
                           ),
                         ),
-                        const SizedBox(height: 24),
 
-                        // const Text(
-                        //   "Schedule",
-                        //   style: TextStyle(
-                        //     fontSize: 18,
-                        //     fontWeight: FontWeight.bold,
-                        //   ),
-                        // ),
-                        // ...trip.schedule.map(
-                        //   (item) => Padding(
-                        //     padding: const EdgeInsets.symmetric(vertical: 4),
-                        //     child: Row(
-                        //       children: [
-                        //         const Icon(
-                        //           Icons.check_circle_outline,
-                        //           size: 16,
-                        //           color: Colors.green,
-                        //         ),
-                        //         const SizedBox(width: 8),
-                        //         Expanded(
-                        //           child: Text(
-                        //             item,
-                        //             style: const TextStyle(fontSize: 14),
-                        //           ),
-                        //         ),
-                        //       ],
-                        //     ),
-                        //   ),
-                        // ),
+                        //?? upcoming tours
+                        const SizedBox(height: 16),
+                        Row(
+                          children: [
+                            Text(
+                              'Upcoming tours',
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.w600,
+                                color: Colors.black,
+                              ),
+                            ),
+                            const Spacer(),
+                            GestureDetector(
+                              onTap: () {
+                                //?? see more function
+                              },
+                              child: const Text(
+                                'See more',
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.black,
+                                  decoration: TextDecoration.underline,
+                                  decorationThickness: 1,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
 
-                        // const SizedBox(height: 32),
-                        // // Book Now Button
-                        // SizedBox(
-                        //   width: double.infinity,
-                        //   child: ElevatedButton(
-                        //     style: ElevatedButton.styleFrom(
-                        //       backgroundColor: Colors.black,
-                        //       padding: const EdgeInsets.symmetric(vertical: 18),
-                        //       shape: RoundedRectangleBorder(
-                        //         borderRadius: BorderRadius.circular(16),
-                        //       ),
-                        //     ),
-                        //     onPressed: () {},
-                        //     child: const Text(
-                        //       "Book Now",
-                        //       style: TextStyle(
-                        //         color: Colors.white,
-                        //         fontSize: 16,
-                        //         fontWeight: FontWeight.bold,
-                        //       ),
-                        //     ),
-                        //   ),
-                        // ),
-                        const SizedBox(height: 20),
+                        const SizedBox(height: 12),
+                        SizedBox(
+                          height: 245,
+                          child: ListView.builder(
+                            physics: const BouncingScrollPhysics(),
+                            scrollDirection: Axis.horizontal,
+                            itemCount: trip.detailedSchedule.length,
+                            itemBuilder: (context, index) => Container(
+                              width: 270,
+                              margin: const EdgeInsets.only(right: 12),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(12),
+                                color: Colors.grey.shade200,
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(12),
+                                      child: Stack(
+                                        children: [
+                                          Image.network(
+                                            trip
+                                                .detailedSchedule[index]
+                                                .dayImage,
+                                            width: double.infinity,
+                                            height: 150,
+                                            fit: BoxFit.cover,
+                                          ),
+                                          Container(
+                                            height: 150,
+                                            decoration: BoxDecoration(
+                                              gradient: LinearGradient(
+                                                begin: Alignment.topCenter,
+                                                end: Alignment.bottomCenter,
+                                                colors: [
+                                                  Colors.transparent,
+                                                  Colors.black.withOpacity(0.5),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    const SizedBox(height: 8),
+                                    Text(
+                                      trip.detailedSchedule[index].title,
+                                      style: const TextStyle(
+                                        fontFamily: 'InstrumentSans',
+                                        fontSize: 15,
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
+                                    const SizedBox(height: 4),
+                                    Row(
+                                      children: [
+                                        Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              '${trip.days} days ● from \$${trip.price.toString()}/person',
+                                              style: const TextStyle(
+                                                fontFamily: 'InstrumentSans',
+                                                fontSize: 12,
+                                                color: Colors.grey,
+                                                fontWeight: FontWeight.w600,
+                                              ),
+                                            ),
+                                            const SizedBox(height: 4),
+                                            Row(
+                                              children: [
+                                                Row(
+                                                  children: [
+                                                    Icon(
+                                                      Icons.star_border_rounded,
+                                                      size: 16,
+                                                      color: Colors.black,
+                                                    ),
+                                                    const SizedBox(width: 3),
+                                                    Text(
+                                                      trip.rating.toString(),
+                                                      style: const TextStyle(
+                                                        fontFamily:
+                                                            'InstrumentSans',
+                                                        fontSize: 12,
+                                                        color: Colors.black54,
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                const SizedBox(width: 12),
+                                                Text(
+                                                  '${trip.reviews} reviews',
+                                                  style: const TextStyle(
+                                                    fontFamily:
+                                                        'InstrumentSans',
+                                                    fontSize: 12,
+                                                    color: Colors.grey,
+                                                    fontWeight: FontWeight.w600,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                        const Spacer(),
+                                        GestureDetector(
+                                          onTap: () {
+                                            //?? Handle profile tap
+                                          },
+                                          child: Container(
+                                            width: 40,
+                                            height: 40,
+                                            decoration: BoxDecoration(
+                                              shape: BoxShape.circle,
+                                              color: Colors.grey.shade900,
+                                            ),
+                                            child: const Icon(
+                                              Icons.arrow_forward,
+                                              color: Colors.white,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),
