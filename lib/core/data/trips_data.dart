@@ -1,29 +1,8 @@
-class Trip {
-  final String category;
-  final String name;
-  final String country;
-  final String image;
-  final double rating;
-  final int reviews;
-  final String description;
-  final List<String> schedule;
-  final String accommodation;
+import 'package:travel_app/core/models/trip_model.dart';
 
-  const Trip({
-    required this.category,
-    required this.name,
-    required this.country,
-    required this.image,
-    required this.rating,
-    required this.reviews,
-    required this.description,
-    required this.schedule,
-    required this.accommodation,
-  });
-}
-
-const allTrips = [
+final List<Trip> allTrips = [
   Trip(
+    id: 1,
     category: 'Europe',
     name: 'Paris Romantic Getaway',
     country: 'France',
@@ -43,6 +22,7 @@ const allTrips = [
         'Luxury 5-star hotel in Le Marais district with Eiffel views',
   ),
   Trip(
+    id: 2,
     category: 'Asia',
     name: 'Tokyo Urban Adventure',
     country: 'Japan',
@@ -61,6 +41,7 @@ const allTrips = [
     accommodation: 'Modern ryokan-style hotel in Shinjuku with onsen baths',
   ),
   Trip(
+    id: 3,
     category: 'Asia',
     name: 'Bali Tropical Paradise',
     country: 'Indonesia',
@@ -81,6 +62,7 @@ const allTrips = [
         'Beachfront villa resort with private infinity pool and yoga pavilion',
   ),
   Trip(
+    id: 4,
     category: 'America',
     name: 'New York City Lights',
     country: 'USA',
@@ -99,6 +81,7 @@ const allTrips = [
     accommodation: 'Trendy boutique hotel in Midtown Manhattan',
   ),
   Trip(
+    id: 5,
     category: 'America',
     name: 'Machu Picchu Wonder',
     country: 'Peru',
@@ -116,6 +99,7 @@ const allTrips = [
     accommodation: 'Historic boutique hotel in Cusco & trail lodges',
   ),
   Trip(
+    id: 6,
     category: 'Europe',
     name: 'Santorini Sunset Bliss',
     country: 'Greece',
@@ -135,6 +119,7 @@ const allTrips = [
         'Cave suite hotel with private infinity pool overlooking Aegean Sea',
   ),
   Trip(
+    id: 7,
     category: 'Africa',
     name: 'Cape Town Coastal',
     country: 'South Africa',
@@ -153,6 +138,7 @@ const allTrips = [
     accommodation: 'Ocean-view apartment in Camps Bay',
   ),
   Trip(
+    id: 8,
     category: 'Europe',
     name: 'Amalfi Coast Drive',
     country: 'Italy',
@@ -171,6 +157,7 @@ const allTrips = [
     accommodation: 'Clifftop hotel with sea views in Praiano',
   ),
   Trip(
+    id: 9,
     category: 'America',
     name: 'Banff National Park',
     country: 'Canada',
@@ -189,6 +176,7 @@ const allTrips = [
     accommodation: 'Fairmont Chateau-style lodge by the lake',
   ),
   Trip(
+    id: 10,
     category: 'Africa',
     name: 'Marrakech Exotic',
     country: 'Morocco',
@@ -207,6 +195,7 @@ const allTrips = [
     accommodation: 'Traditional riad with rooftop terrace in the medina',
   ),
   Trip(
+    id: 11,
     category: 'Europe',
     name: 'Reykjavik Northern Lights',
     country: 'Iceland',
@@ -225,6 +214,7 @@ const allTrips = [
     accommodation: 'Cozy geothermal-heated hotel with aurora views',
   ),
   Trip(
+    id: 12,
     category: 'America',
     name: 'Rio de Janeiro Carnival',
     country: 'Brazil',

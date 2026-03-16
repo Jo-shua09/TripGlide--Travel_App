@@ -189,7 +189,7 @@ class TripCardSwiper extends StatelessWidget {
                         //?? "See More" Button
                         const SizedBox(height: 14),
                         GestureDetector(
-                          onTap: () => Get.to(() => const TripDetailsScreen()),
+                          onTap: () => Get.to(() => TripDetailsScreen(trip)),
                           child: Container(
                             width: double.infinity,
                             padding: const EdgeInsets.fromLTRB(16, 4, 4, 4),

@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:travel_app/core/data/trips_data.dart';
+import 'package:travel_app/core/models/trip_model.dart';
 
 class HomeController extends GetxController {
   var allTripsList = allTrips.obs;
