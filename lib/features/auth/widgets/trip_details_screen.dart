@@ -22,7 +22,7 @@ class TripDetailsScreen extends StatelessWidget {
             right: 0,
             child: Container(
               width: double.infinity,
-              height: 270,
+              height: 340,
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: NetworkImage(trip.image),
@@ -33,13 +33,16 @@ class TripDetailsScreen extends StatelessWidget {
           ),
 
           //?? 2. Gradient Overlay for readability
-          Positioned.fill(
+          Positioned(
             child: Container(
+              width: double.infinity,
+              height: double.infinity,
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   colors: [
+                    // ignore: deprecated_member_use
                     Colors.black.withOpacity(0.3),
                     Colors.transparent,
                     Colors.black.withOpacity(0.4),
