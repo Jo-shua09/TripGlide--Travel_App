@@ -61,17 +61,20 @@ class _SignUpScreenState extends State<SignUpScreen> {
             const SizedBox(height: 16),
             const TextFieldWidget(
               hintText: 'Email Address',
+              keyboardType: TextInputType.emailAddress,
               prefixIcon: Icons.email_outlined,
             ),
             const SizedBox(height: 16),
             const TextFieldWidget(
               hintText: 'Password',
+              keyboardType: TextInputType.text,
               prefixIcon: Icons.lock_outline,
               isPassword: true,
             ),
             const SizedBox(height: 16),
             const TextFieldWidget(
               hintText: 'Confirm Password',
+              keyboardType: TextInputType.text,
               prefixIcon: Icons.lock_outline,
               isPassword: true,
             ),

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:travel_app/core/models/trip_model.dart';
-import 'package:travel_app/features/home/controllers/home_controller.dart';
+import 'package:travel_app/features/auth/widgets/upcoming_tour_details_screen.dart';
+// import 'package:travel_app/features/home/controllers/home_controller.dart';
 
 class TripDetailsScreen extends StatelessWidget {
   final Trip trip;
@@ -9,7 +10,7 @@ class TripDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final HomeController controller = Get.find<HomeController>();
+    // final HomeController controller = Get.find<HomeController>();
 
     return Scaffold(
       backgroundColor: Colors.grey.shade900,
@@ -384,7 +385,11 @@ class TripDetailsScreen extends StatelessWidget {
                                         const Spacer(),
                                         GestureDetector(
                                           onTap: () {
-                                            //?? Handle profile tap
+                                            Get.to(
+                                              () => UpcomingTourDetailsScreen(
+                                                trip: trip,
+                                              ),
+                                            );
                                           },
                                           child: Container(
                                             width: 40,
