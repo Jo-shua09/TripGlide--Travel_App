@@ -72,18 +72,13 @@ class TripDetailsScreen extends StatelessWidget {
                   ),
                   CircleAvatar(
                     backgroundColor: Colors.white,
-                    child: Obx(
-                      () => IconButton(
-                        icon: Icon(
-                          controller.isFavorite(trip)
-                              ? Icons.favorite
-                              : Icons.favorite_border,
-                          color: controller.isFavorite(trip)
-                              ? Colors.red
-                              : Colors.black,
-                        ),
-                        onPressed: () => controller.toggleFavorite(trip),
+                    child: IconButton(
+                      icon: const Icon(
+                        Icons.favorite_border_rounded,
+                        color: Colors.black,
+                        size: 20,
                       ),
+                      onPressed: () {},
                     ),
                   ),
                 ],
@@ -94,9 +89,9 @@ class TripDetailsScreen extends StatelessWidget {
           //?? 4. The Modern Draggable Bottom Sheet
           DraggableScrollableSheet(
             snap: true,
-            snapSizes: [0.35, 0.9],
-            initialChildSize: 0.7, //?? Halfway open
-            minChildSize: 0.35,
+            snapSizes: [0.65, 0.9],
+            initialChildSize: 0.65, //?? Halfway open
+            minChildSize: 0.65,
             maxChildSize: 0.9, //?? Almost full screen
             builder: (context, scrollController) {
               return Container(
@@ -114,7 +109,7 @@ class TripDetailsScreen extends StatelessWidget {
                         //!! Drag Handle
                         Center(
                           child: Container(
-                            width: 40,
+                            width: 50,
                             height: 5,
                             decoration: BoxDecoration(
                               color: Colors.grey[300],
