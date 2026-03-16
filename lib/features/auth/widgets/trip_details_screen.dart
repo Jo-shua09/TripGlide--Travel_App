@@ -13,7 +13,7 @@ class TripDetailsScreen extends StatelessWidget {
     // final HomeController controller = Get.find<HomeController>();
 
     return Scaffold(
-      backgroundColor: Colors.grey.shade900,
+      backgroundColor: Colors.grey.shade200,
       body: Stack(
         children: [
           //?? 1. Full-screen Background Image
@@ -270,6 +270,7 @@ class TripDetailsScreen extends StatelessWidget {
                           ],
                         ),
 
+                        //?? upcoming tours card
                         const SizedBox(height: 12),
                         SizedBox(
                           height: 245,
@@ -277,121 +278,125 @@ class TripDetailsScreen extends StatelessWidget {
                             physics: const BouncingScrollPhysics(),
                             scrollDirection: Axis.horizontal,
                             itemCount: trip.detailedSchedule.length,
-                            itemBuilder: (context, index) => Container(
-                              width: 270,
-                              margin: const EdgeInsets.only(right: 12),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(12),
-                                color: Colors.grey.shade200,
+                            itemBuilder: (context, index) => GestureDetector(
+                              onTap: () => Get.to(
+                                () => UpcomingTourDetailsScreen(
+                                  trip: trip,
+                                  tourName: trip.detailedSchedule[index].title,
+                                ),
                               ),
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.circular(12),
-                                      child: Stack(
-                                        children: [
-                                          Image.network(
-                                            trip
-                                                .detailedSchedule[index]
-                                                .dayImage,
-                                            width: double.infinity,
-                                            height: 150,
-                                            fit: BoxFit.cover,
-                                          ),
-                                          Container(
-                                            height: 150,
-                                            decoration: BoxDecoration(
-                                              gradient: LinearGradient(
-                                                begin: Alignment.topCenter,
-                                                end: Alignment.bottomCenter,
-                                                colors: [
-                                                  Colors.transparent,
-                                                  Colors.black.withOpacity(0.5),
-                                                ],
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    const SizedBox(height: 8),
-                                    Text(
-                                      trip.detailedSchedule[index].title,
-                                      style: const TextStyle(
-                                        fontFamily: 'InstrumentSans',
-                                        fontSize: 15,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                    ),
-                                    const SizedBox(height: 4),
-                                    Row(
-                                      children: [
-                                        Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                              child: Container(
+                                width: 270,
+                                margin: const EdgeInsets.only(right: 12),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(12),
+                                  color: Colors.grey.shade200,
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      ClipRRect(
+                                        borderRadius: BorderRadius.circular(12),
+                                        child: Stack(
                                           children: [
-                                            Text(
-                                              '${trip.days} days ● from \$${trip.price.toString()}/person',
-                                              style: const TextStyle(
-                                                fontFamily: 'InstrumentSans',
-                                                fontSize: 12,
-                                                color: Colors.grey,
-                                                fontWeight: FontWeight.w600,
-                                              ),
+                                            Image.network(
+                                              trip
+                                                  .detailedSchedule[index]
+                                                  .dayImage,
+                                              width: double.infinity,
+                                              height: 150,
+                                              fit: BoxFit.cover,
                                             ),
-                                            const SizedBox(height: 4),
-                                            Row(
-                                              children: [
-                                                Row(
-                                                  children: [
-                                                    Icon(
-                                                      Icons.star_border_rounded,
-                                                      size: 16,
-                                                      color: Colors.black,
-                                                    ),
-                                                    const SizedBox(width: 3),
-                                                    Text(
-                                                      trip.rating.toString(),
-                                                      style: const TextStyle(
-                                                        fontFamily:
-                                                            'InstrumentSans',
-                                                        fontSize: 12,
-                                                        color: Colors.black54,
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                      ),
+                                            Container(
+                                              height: 150,
+                                              decoration: BoxDecoration(
+                                                gradient: LinearGradient(
+                                                  begin: Alignment.topCenter,
+                                                  end: Alignment.bottomCenter,
+                                                  colors: [
+                                                    Colors.transparent,
+                                                    Colors.black.withOpacity(
+                                                      0.5,
                                                     ),
                                                   ],
                                                 ),
-                                                const SizedBox(width: 12),
-                                                Text(
-                                                  '${trip.reviews} reviews',
-                                                  style: const TextStyle(
-                                                    fontFamily:
-                                                        'InstrumentSans',
-                                                    fontSize: 12,
-                                                    color: Colors.grey,
-                                                    fontWeight: FontWeight.w600,
-                                                  ),
-                                                ),
-                                              ],
+                                              ),
                                             ),
                                           ],
                                         ),
-                                        const Spacer(),
-                                        GestureDetector(
-                                          onTap: () {
-                                            Get.to(
-                                              () => UpcomingTourDetailsScreen(
-                                                trip: trip,
+                                      ),
+                                      const SizedBox(height: 8),
+                                      Text(
+                                        trip.detailedSchedule[index].title,
+                                        style: const TextStyle(
+                                          fontFamily: 'InstrumentSans',
+                                          fontSize: 15,
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                      ),
+                                      const SizedBox(height: 4),
+                                      Row(
+                                        children: [
+                                          Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                '${trip.days} days ● from \$${trip.price.toString()}/person',
+                                                style: const TextStyle(
+                                                  fontFamily: 'InstrumentSans',
+                                                  fontSize: 12,
+                                                  color: Colors.grey,
+                                                  fontWeight: FontWeight.w600,
+                                                ),
                                               ),
-                                            );
-                                          },
-                                          child: Container(
+                                              const SizedBox(height: 4),
+                                              Row(
+                                                children: [
+                                                  Row(
+                                                    children: [
+                                                      const Icon(
+                                                        Icons
+                                                            .star_border_rounded,
+                                                        size: 16,
+                                                        color: Colors.black,
+                                                      ),
+                                                      const SizedBox(width: 3),
+                                                      Text(
+                                                        trip.rating.toString(),
+                                                        style: const TextStyle(
+                                                          fontFamily:
+                                                              'InstrumentSans',
+                                                          fontSize: 12,
+                                                          color: Colors.black54,
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  const SizedBox(width: 12),
+                                                  Text(
+                                                    '${trip.reviews} reviews',
+                                                    style: const TextStyle(
+                                                      fontFamily:
+                                                          'InstrumentSans',
+                                                      fontSize: 12,
+                                                      color: Colors.grey,
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                          const Spacer(),
+                                          Container(
                                             width: 40,
                                             height: 40,
                                             decoration: BoxDecoration(
@@ -403,10 +408,10 @@ class TripDetailsScreen extends StatelessWidget {
                                               color: Colors.white,
                                             ),
                                           ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
+                                        ],
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
@@ -423,4 +428,21 @@ class TripDetailsScreen extends StatelessWidget {
       ),
     );
   }
+
+  // void tourName(context, index) {
+  //   return ListView.builder(
+  //     physics: const BouncingScrollPhysics(),
+  //     scrollDirection: Axis.horizontal,
+  //     itemCount: trip.detailedSchedule.length,
+  //     itemBuilder: (context, index) => Container(
+  //       width: 270,
+  //       margin: const EdgeInsets.only(right: 12),
+  //       decoration: BoxDecoration(
+  //         borderRadius: BorderRadius.circular(12),
+  //         color: Colors.grey.shade200,
+  //       ),
+  //       child: Text(trip.detailedSchedule[index].title),
+  //     ),
+  //   );
+  // }
 }
