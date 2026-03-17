@@ -14,6 +14,11 @@ final List<Trip> allTrips = [
     days: 8,
     description:
         "Experience the vibrant heart of South America, from the peaks of Rio to the depths of the Amazon.",
+    bookingDetails: BookingDetails(
+      availableSlots: 12,
+      nextDeparture: DateTime(2024, 10, 15),
+      cancellationPolicy: "Free cancellation up to 7 days before departure.",
+    ),
     accommodation: "Boutique hotels and traditional eco-lodges.",
     detailedSchedule: [
       ScheduleItem(
@@ -48,6 +53,11 @@ final List<Trip> allTrips = [
     price: 890.0,
     days: 4,
     description: "The ultimate city break for love and culture.",
+    bookingDetails: BookingDetails(
+      availableSlots: 8,
+      nextDeparture: DateTime(2024, 09, 20),
+      cancellationPolicy: "Non-refundable within 48 hours of booking.",
+    ),
     accommodation: "Le Marais luxury apartments.",
     detailedSchedule: [
       ScheduleItem(
@@ -74,6 +84,11 @@ final List<Trip> allTrips = [
     days: 10,
     description:
         "Journey through a land where ancient traditions meet futuristic cities. From serene temples to bustling streets, Japan is a study in contrasts.",
+    bookingDetails: BookingDetails(
+      availableSlots: 15,
+      nextDeparture: DateTime(2024, 11, 05),
+      cancellationPolicy: "Full refund if cancelled 14 days prior.",
+    ),
     accommodation: "A mix of traditional Ryokans and modern city hotels.",
     detailedSchedule: [
       ScheduleItem(
@@ -109,6 +124,11 @@ final List<Trip> allTrips = [
     days: 7,
     description:
         "Uncover the mysteries of the pharaohs, cruise the legendary Nile, and stand in awe of the Great Pyramids of Giza.",
+    bookingDetails: BookingDetails(
+      availableSlots: 20,
+      nextDeparture: DateTime(2024, 12, 01),
+      cancellationPolicy: "50% refund up to 30 days before.",
+    ),
     accommodation: "5-star Nile cruise ship and a luxury hotel in Cairo.",
     detailedSchedule: [
       ScheduleItem(
@@ -144,6 +164,11 @@ final List<Trip> allTrips = [
     days: 12,
     description:
         "From the iconic Sydney Opera House to the vibrant underwater world of the Great Barrier Reef, experience the best of Down Under.",
+    bookingDetails: BookingDetails(
+      availableSlots: 10,
+      nextDeparture: DateTime(2025, 01, 10),
+      cancellationPolicy: "Free cancellation up to 14 days before.",
+    ),
     accommodation: "City hotels and coastal resorts.",
     detailedSchedule: [
       ScheduleItem(
@@ -179,6 +204,11 @@ final List<Trip> allTrips = [
     days: 9,
     description:
         "Witness the Great Migration in the Maasai Mara and encounter the 'Big Five' in their natural habitat on this unforgettable safari.",
+    bookingDetails: BookingDetails(
+      availableSlots: 6,
+      nextDeparture: DateTime(2024, 08, 25),
+      cancellationPolicy: "Strict: No refunds within 30 days.",
+    ),
     accommodation: "Luxury safari lodges and tented camps.",
     detailedSchedule: [
       ScheduleItem(
@@ -216,6 +246,11 @@ final List<Trip> allTrips = [
     days: 10,
     description:
         "Discover the timeless beauty of Italy, from the ancient ruins of Rome to the romantic canals of Venice and the artistic heart of Florence.",
+    bookingDetails: BookingDetails(
+      availableSlots: 18,
+      nextDeparture: DateTime(2024, 09, 12),
+      cancellationPolicy: "Free cancellation up to 5 days before.",
+    ),
     accommodation: "Charming city hotels and a classic Venetian guesthouse.",
     detailedSchedule: [
       ScheduleItem(
@@ -252,6 +287,11 @@ final List<Trip> allTrips = [
     days: 8,
     description:
         "Explore the breathtaking landscapes of the Canadian Rockies. Witness turquoise lakes, towering glaciers, and abundant wildlife in Banff and Jasper National Parks.",
+    bookingDetails: BookingDetails(
+      availableSlots: 14,
+      nextDeparture: DateTime(2024, 07, 15),
+      cancellationPolicy: "Full refund if weather prevents travel.",
+    ),
     accommodation: "Mountain lodges and cozy chalets.",
     detailedSchedule: [
       ScheduleItem(
@@ -287,6 +327,11 @@ final List<Trip> allTrips = [
     days: 9,
     description:
         "Embark on a journey to the heart of the Inca Empire. Explore the culinary scene in Lima, discover the Sacred Valley, and be mesmerized by the ancient citadel of Machu Picchu.",
+    bookingDetails: BookingDetails(
+      availableSlots: 10,
+      nextDeparture: DateTime(2024, 10, 02),
+      cancellationPolicy: "Permit fees are non-refundable.",
+    ),
     accommodation: "Boutique hotels and a jungle lodge.",
     detailedSchedule: [
       ScheduleItem(
@@ -322,6 +367,11 @@ final List<Trip> allTrips = [
     days: 7,
     description:
         "Live the dream of island hopping in the Aegean Sea. Witness iconic sunsets in Santorini, party in Mykonos, and discover the ancient history of Crete.",
+    bookingDetails: BookingDetails(
+      availableSlots: 25,
+      nextDeparture: DateTime(2024, 08, 01),
+      cancellationPolicy: "Free cancellation up to 10 days before.",
+    ),
     accommodation: "Whitewashed villas and seaside hotels.",
     detailedSchedule: [
       ScheduleItem(
@@ -357,6 +407,11 @@ final List<Trip> allTrips = [
     days: 12,
     description:
         "Experience the 'Land of Smiles'. From the bustling markets of Bangkok to the tranquil temples of Chiang Mai and the stunning beaches of the south.",
+    bookingDetails: BookingDetails(
+      availableSlots: 30,
+      nextDeparture: DateTime(2024, 11, 20),
+      cancellationPolicy: "Flexible rebooking options available.",
+    ),
     accommodation: "City hotels, jungle bungalows, and beach resorts.",
     detailedSchedule: [
       ScheduleItem(
@@ -392,6 +447,11 @@ final List<Trip> allTrips = [
     days: 14,
     description:
         "Journey through Middle-earth. Experience the adventure capital of Queenstown, the dramatic fjords of Milford Sound, and the geothermal wonders of Rotorua.",
+    bookingDetails: BookingDetails(
+      availableSlots: 12,
+      nextDeparture: DateTime(2024, 12, 15),
+      cancellationPolicy: "Full refund up to 21 days before.",
+    ),
     accommodation: "Modern hotels and scenic lodges.",
     detailedSchedule: [
       ScheduleItem(
@@ -427,6 +487,11 @@ final List<Trip> allTrips = [
     days: 8,
     description:
         "Immerse yourself in the vibrant colors and culture of Morocco. Navigate the bustling souks of Marrakech, ride a camel into the Sahara desert, and explore ancient kasbahs.",
+    bookingDetails: BookingDetails(
+      availableSlots: 15,
+      nextDeparture: DateTime(2024, 09, 30),
+      cancellationPolicy: "Free cancellation up to 7 days before.",
+    ),
     accommodation: "Traditional Riads and a desert camp.",
     detailedSchedule: [
       ScheduleItem(
@@ -462,6 +527,11 @@ final List<Trip> allTrips = [
     days: 9,
     description:
         "Experience the passion of Spain. From Gaudi's architectural wonders in Barcelona to the royal history of Madrid and the flamenco rhythms of Andalusia.",
+    bookingDetails: BookingDetails(
+      availableSlots: 20,
+      nextDeparture: DateTime(2024, 10, 10),
+      cancellationPolicy: "Free cancellation up to 48 hours before.",
+    ),
     accommodation: "Stylish city hotels.",
     detailedSchedule: [
       ScheduleItem(
@@ -498,6 +568,11 @@ final List<Trip> allTrips = [
     days: 11,
     description:
         "Discover the rich history and stunning landscapes of Vietnam. Cruise through the limestone karsts of Ha Long Bay, explore the ancient town of Hoi An, and experience the energy of Ho Chi Minh City.",
+    bookingDetails: BookingDetails(
+      availableSlots: 16,
+      nextDeparture: DateTime(2024, 11, 01),
+      cancellationPolicy: "Full refund if cancelled 14 days prior.",
+    ),
     accommodation: "Boutique hotels and an overnight cruise boat.",
     detailedSchedule: [
       ScheduleItem(
@@ -533,6 +608,11 @@ final List<Trip> allTrips = [
     days: 6,
     description:
         "Chase the magical Aurora Borealis across Iceland's otherworldly landscapes. Explore the Golden Circle, relax in the Blue Lagoon, and walk on black sand beaches.",
+    bookingDetails: BookingDetails(
+      availableSlots: 10,
+      nextDeparture: DateTime(2024, 12, 20),
+      cancellationPolicy: "Weather-dependent rescheduling available.",
+    ),
     accommodation: "Modern hotels in Reykjavik and countryside inns.",
     detailedSchedule: [
       ScheduleItem(

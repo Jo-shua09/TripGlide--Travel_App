@@ -16,6 +16,18 @@ class ScheduleItem {
   });
 }
 
+class BookingDetails {
+  final int availableSlots;
+  final DateTime nextDeparture;
+  final String cancellationPolicy;
+
+  BookingDetails({
+    required this.availableSlots,
+    required this.nextDeparture,
+    required this.cancellationPolicy,
+  });
+}
+
 class Trip {
   final int id;
   final String name;
@@ -28,6 +40,7 @@ class Trip {
   final String category;
   final String description;
   final List<ScheduleItem> detailedSchedule;
+  final BookingDetails bookingDetails;
   final String accommodation;
 
   Trip({
@@ -42,6 +55,7 @@ class Trip {
     required this.category,
     required this.description,
     required this.detailedSchedule,
+    required this.bookingDetails,
     required this.accommodation,
   });
 }
